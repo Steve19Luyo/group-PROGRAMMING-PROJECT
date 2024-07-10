@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-using nanespace std;
+using namespace std;
 
 struct Student {
     string firstName;
