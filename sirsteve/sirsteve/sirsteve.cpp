@@ -154,4 +154,36 @@ void saveToFile(const string& filename) {
     }
 }
 
+int main() {
+    int choice;
+    do {
+        cout << "1. Add Student\n2. View Students\n3. View Clubs/Societies\n4. View Sports\n5. Save to File\n6. Exit\n";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                addStudent();
+                break;
+             case 2:
+                viewStudents();
+                break;
+             case 3:
+                viewActivities(clubs);
+                break;
+             case 4:
+                viewActivities(sports);
+                break;
+             case 5:
+                saveToFile("students.csv");
+                break;
+             case 6:
+                cout << "Exiting program." << endl;
+                break;
+              default:
+                cout << "Invalid choice. Please try again." << endl;
+         }
+         break;
+    } while (choice != 6);
 
+    system("pause");
+    return 0;
+}
