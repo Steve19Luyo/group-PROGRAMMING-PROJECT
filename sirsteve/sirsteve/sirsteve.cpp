@@ -117,6 +117,7 @@ void addStudent() {
         cout << "Student added successfully." << endl;
     }
 }
+
 void viewStudents() {
     for (const auto& student : students) {
         cout << student.firstName << " " << student.surname << " (Group " << student.group << ") - Sport: "
