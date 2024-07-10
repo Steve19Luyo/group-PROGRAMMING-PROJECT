@@ -117,5 +117,40 @@ void addStudent() {
         cout << "Student added successfully." << endl;
     }
 }
+void viewStudents() {
+    for (const auto& student : students) {
+        cout << student.firstName << " " << student.surname << " (Group " << student.group << ") - Sport: "
+             << student.sport << ", Clubs: ";
+        for (const auto& club : student.clubs) {
+            cout << club << " ";
+        }
+        cout << endl;
+    }
+}
+
+void viewActivities(const vector<Activity>& activities) {
+    for (const auto& activity : activities) {
+        cout << activity.name << " (Capacity: " << activity.currentCapacity << "/" << activity.maxCapacity << ")" << endl;
+    }
+}
+
+void saveToFile(const string& filename) {
+    ofstream file(filename);
+    if (file.is_open()) {
+        file << "First Name,Surname,Gender,Age,Group,Sport,Clubs\n";
+        for (const auto& student : students) {
+            file << student.firstName << "," << student.surname << "," << student.gender << ","
+                 << student.age << "," << student.group << "," << student.sport << ",";
+            for (const auto& club : student.clubs) {
+                file << club << " ";
+            }
+            file << "\n";
+        }
+        file.close();
+        cout << "Data saved to " << filename << endl;
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+}
 
 
