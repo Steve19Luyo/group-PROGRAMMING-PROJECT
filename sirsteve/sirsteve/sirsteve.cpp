@@ -64,6 +64,7 @@ bool addStudentToActivity(Activity& activity, string gender) {
     }
     return true;
 }
+
 void addStudent() {
     Student student;
     cout << "Enter First Name: ";
@@ -72,6 +73,8 @@ void addStudent() {
     cin >> student.surname;
     cout << "Enter Gender (Male/Female): ";
     cin >> student.gender;
+    if (student.gender !="male" && student.gender!= "female")
+     { cout << "Invalid gender. Please try again"<<endl;return;}
     cout << "Enter Age: ";
     cin >> student.age;
     cout << "Enter BBIT Group (1-3): ";
@@ -179,9 +182,8 @@ int main() {
                 cout << "Exiting program." << endl;
                 break;
               default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Invalid choice. Please try again." << endl;return 0;
          }
-         break;
     } while (choice != 6);
 
     system("pause");
