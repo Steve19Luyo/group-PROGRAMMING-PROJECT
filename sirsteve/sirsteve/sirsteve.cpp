@@ -64,3 +64,58 @@ bool addStudentToActivity(Activity& activity, string gender) {
     }
     return true;
 }
+void addStudent() {
+    Student student;
+    cout << "Enter First Name: ";
+    cin >> student.firstName;
+    cout << "Enter Surname: ";
+    cin >> student.surname;
+    cout << "Enter Gender (Male/Female): ";
+    cin >> student.gender;
+    cout << "Enter Age: ";
+    cin >> student.age;
+    cout << "Enter BBIT Group (1-3): ";
+    cin >> student.group;
+
+    int choice;
+    cout << "Choose a sport (or 0 to skip):" << endl;
+    displayActivities(sports);
+    cin >> choice;
+
+    if (choice > 0 && choice <= sports.size()) {
+        if (addStudentToActivity(sports[choice - 1], student.gender)) {
+            student.sport = sports[choice - 1].name;
+        } else {
+            cout << "Unable to add to sport (capacity or gender ratio exceeded)." << endl;
+        }
+    }
+
+    if (choice==0){
+        cout << "Choose up to 3 clubs"<< endl;
+    }
+    else{
+    cout << "Choose up to 2 clubs (enter 0 to finish):" << endl;}
+    displayActivities(clubs);
+    while (student.clubs.size() < (student.sport.empty() ? 3 : 2)) {
+        cin >> choice;
+        if (choice == 0) {
+            break;
+        }
+        if (choice > 0 && choice <= clubs.size()) {
+            if (addStudentToActivity(clubs[choice - 1], student.gender)) {
+                student.clubs.push_back(clubs[choice - 1].name);
+            } else {
+                cout << "Unable to add to club (capacity or gender ratio exceeded)." << endl;
+            }
+        }
+    }
+
+    if (student.sport.empty() && student.clubs.empty()) {
+        cout << "Student must choose at least one sport or club." << endl;
+    } else {
+        students.push_back(student);
+        cout << "Student added successfully." << endl;
+    }
+}
+
+
