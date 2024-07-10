@@ -182,7 +182,7 @@ int main() {
                 cout << "Exiting program." << endl;
                 break;
               default:
-                cout << "Invalid choice. Please try again." << endl;return;
+                cout << "Invalid choice. Please try again." << endl;return 0;
          }
     } while (choice != 6);
 
