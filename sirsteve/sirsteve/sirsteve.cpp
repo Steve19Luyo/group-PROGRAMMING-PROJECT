@@ -162,6 +162,17 @@ int main() {
     do {
         cout << "1. Add Student\n2. View Students\n3. View Clubs/Societies\n4. View Sports\n5. Save to File\n6. Exit\n";
         cin >> choice;
+        {
+            try {
+                cin>>choice;
+                if (choice <= 0 || choice > 7) {
+                    throw runtime_error("invalid choice.please enter a valid choice");
+                }
+            }catch (const runtime_error& e) {
+                cerr << e.what()<<endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            }
         switch (choice) {
             case 1:
                 addStudent();
