@@ -10,7 +10,7 @@ struct Student {
     string gender;
     int age;
     int group;
-    string sport;
+    string spport;
     vector<string> clubs;
 };
 
