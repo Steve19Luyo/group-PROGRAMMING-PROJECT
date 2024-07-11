@@ -72,7 +72,7 @@ void addStudent() {
     cin >> student.surname;
     cout << "Enter Gender (Male/Female): ";
     cin >> student.gender;
-    if (student.gender !="male" && student.gender!= "female")
+    if (student.gender != "M" && student.gender != "F" && student.gender != "m" && student.gender != "f")
      { cout << "Invalid gender. Please try again"<<endl;return addStudent();}
     cout << "Enter Age: ";
     cin >> student.age;
@@ -181,10 +181,10 @@ int main() {
                 cout << "Exiting program." << endl;
                 break;
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Invalid choice. Please try again." <<endl;return 0;
         }
-        break;
-    } while (choice != 6);
+
+    } while (choice !=6);
 
     system("pause");
     return 0;
