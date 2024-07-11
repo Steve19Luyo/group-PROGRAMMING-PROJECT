@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <limits>
 using namespace std;
 
 struct Student {
@@ -42,7 +41,7 @@ vector<Activity> clubs = {
 void displayActivities(vector<Activity>& activities) {
     for (int i = 0; i < activities.size(); i++) {
         cout << i + 1 << ". " << activities[i].name << " (Capacity: "
-            << activities[i].currentCapacity << "/" << activities[i].maxCapacity << ")" << endl;
+             << activities[i].currentCapacity << "/" << activities[i].maxCapacity << ")" << endl;
     }
 }
 
@@ -59,8 +58,7 @@ bool addStudentToActivity(Activity& activity, string gender) {
     activity.currentCapacity++;
     if (gender == "Male") {
         activity.currentMale++;
-    }
-    else {
+    } else {
         activity.currentFemale++;
     }
     return true;
@@ -74,8 +72,6 @@ void addStudent() {
     cin >> student.surname;
     cout << "Enter Gender (Male/Female): ";
     cin >> student.gender;
-    if (student.gender !="male" && student.gender!= "female")
-     { cout << "Invalid gender. Please try again"<<endl;return;}
     cout << "Enter Age: ";
     cin >> student.age;
     cout << "Enter BBIT Group (1-3): ";
@@ -163,42 +159,31 @@ int main() {
     do {
         cout << "1. Add Student\n2. View Students\n3. View Clubs/Societies\n4. View Sports\n5. Save to File\n6. Exit\n";
         cin >> choice;
-        {
-            try {
-                cin>>choice;
-                if (choice <= 0 || choice > 7) {
-                    throw runtime_error("invalid choice.please enter a valid choice");
-                }
-            }catch (const runtime_error& e) {
-                cerr << e.what()<<endl;
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(),'\n');
-            }
         switch (choice) {
             case 1:
                 addStudent();
                 break;
-             case 2:
+            case 2:
                 viewStudents();
                 break;
-             case 3:
+            case 3:
                 viewActivities(clubs);
                 break;
-             case 4:
+            case 4:
                 viewActivities(sports);
                 break;
-             case 5:
+            case 5:
                 saveToFile("students.csv");
                 break;
-             case 6:
+            case 6:
                 cout << "Exiting program." << endl;
                 break;
-              default:
-                cout << "Invalid choice. Please try again." << endl;return 0;
-         }
-    } 
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+        break;
+    } while (choice != 6);
 
     system("pause");
     return 0;
-}while (choice != 6);
 }
