@@ -70,7 +70,7 @@ void addStudent() {
     cin >> student.firstName;
     cout << "Enter Surname: ";
     cin >> student.surname;
-    cout << "Enter Gender (Male/Female): ";
+    cout << "Enter Gender (M/F): ";
     cin >> student.gender;
     if (student.gender != "M" && student.gender != "F" && student.gender != "m" && student.gender != "f")
      { cout << "Invalid gender. Please try again"<<endl;return addStudent();}
