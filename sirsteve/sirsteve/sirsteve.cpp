@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <limits>
 using namespace std;
 
 struct Student {
@@ -195,8 +196,9 @@ int main() {
               default:
                 cout << "Invalid choice. Please try again." << endl;return 0;
          }
-    } while (choice != 6);
+    } 
 
     system("pause");
     return 0;
+}while (choice != 6);
 }
