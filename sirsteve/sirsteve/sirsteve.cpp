@@ -122,8 +122,7 @@ void addStudent() {
 
 void viewStudents() {
     for (const auto& student : students) {
-        cout << student.firstName << " " << student.surname << " (Group " << student.group << ") - Sport: "
-             << student.sport << ", Clubs: ";
+        cout << student.firstName << " " << student.surname << " (Group " << student.group << ") - Age: " << student.age << " - Sport: " << student.sport << ", Clubs: ";
         for (const auto& club : student.clubs) {
             cout << club << " ";
         }
